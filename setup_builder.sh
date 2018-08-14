@@ -6,8 +6,8 @@ set -eu
 pacman --noconfirm -Syu
 pacman -S --noconfirm base-devel || echo "The base-devel installation did not work"
 pacman -S --noconfirm git arch-install-scripts haveged
-useradd builder
-mkdir /home/builder
+useradd builder || echo "builder user already exists"
+mkdir -p /home/builder
 chown builder /home/builder
 echo "builder ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
