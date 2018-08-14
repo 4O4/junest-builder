@@ -17,6 +17,8 @@ mkdir -p ${JUNEST_BUILDER}/tmp
 # ArchLinux System initialization
 sudo pacman -Syu --noconfirm
 yaourt -S --noconfirm junest-git
+yaourt -S --noconfirm aurman
+sudo pacman -S --noconfirm glibc gcc zsh ranger exa vim neovim
 
 sudo systemctl start haveged
 
@@ -24,20 +26,4 @@ sudo systemctl start haveged
 cd ${JUNEST_BUILDER}
 JUNEST_TEMPDIR=${JUNEST_BUILDER}/tmp /opt/junest/bin/junest -b
 
-# Upload image
-for img in $(ls junest-*.tar.gz);
-do
-    droxi put -f -O /Public/junest ${img}
-done
-
-DATE=$(date +'%Y-%m-%d-%H-%M-%S')
-
-for img in $(ls junest-*.tar.gz);
-do
-    mv ${img} "${img}.${DATE}"
-    droxi put -E -f -O /Public/junest "${img}.${DATE}"
-done
-
-# Cleanup
-[ "$ARCH" != "" ] && droxi ls /Public/junest/junest-${ARCH}.tar.gz.* | sed 's/ .*$//' | head -n -3 | xargs -I {} droxi rm "{}"
 sudo rm -rf ${JUNEST_BUILDER}
