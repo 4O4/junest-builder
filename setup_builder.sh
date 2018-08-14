@@ -37,5 +37,5 @@ sudo pacman --noconfirm -U yaourt*.pkg.tar.xz
 EOF
 
 mkdir -p /home/builder/.ssh
-cp /root/.ssh/authorized_keys /home/builder/.ssh/
+cp /root/.ssh/authorized_keys /home/builder/.ssh/ || echo "Oooops! No authorized_keys"
 chown -R builder /home/builder/.ssh
