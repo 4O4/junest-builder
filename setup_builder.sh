@@ -34,8 +34,6 @@ cd \${JUNEST_BUILDER}/tmp/yaourt
 curl -L -J -O -k "https://aur.archlinux.org/cgit/aur.git/plain/PKGBUILD?h=yaourt"
 makepkg --noconfirm -sfc
 sudo pacman --noconfirm -U yaourt*.pkg.tar.xz
-yaourt -S --noconfirm droxi
-droxi
 EOF
 
 mkdir -p /home/builder/.ssh
