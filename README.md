@@ -16,8 +16,6 @@ Create manually the JuNest image
 Access as *builder* user:
 
     # ssh builder@<hostname>
-    $ ARCH=<one of x86, x86_64, arm>
-    $ git clone https://github.com/fsquillace/junest-builder.git /home/builder
     $ systemctl --user daemon-reload
     $ systemctl --user start junest@${ARCH}.service
 
