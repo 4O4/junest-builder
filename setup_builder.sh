@@ -14,7 +14,7 @@ echo "builder ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 cd /
 sudo -u builder bash << EOF
 
-git clone https://github.com/fsquillace/junest-builder.git /home/builder
+git clone https://github.com/4O4/junest-builder.git /home/builder
 git config --global user.email "builder@junest.org"
 git config --global user.name "builder"
 
