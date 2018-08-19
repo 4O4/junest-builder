@@ -5,7 +5,7 @@ set -eu
 # ArchLinux System initialization
 pacman --noconfirm -Syu
 pacman -S --noconfirm base-devel || echo "The base-devel installation did not work"
-pacman -S --noconfirm git arch-install-scripts haveged
+pacman -S --noconfirm git arch-install-scripts haveged python3
 useradd builder || echo "builder user already exists"
 echo "builder:builder" | chpasswd
 mkdir -p /home/builder
