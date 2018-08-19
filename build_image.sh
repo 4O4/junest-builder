@@ -19,12 +19,12 @@ sudo pacman -Syu --noconfirm
 sudo pacman -S --noconfirm git
 git clone https://github.com/4O4/junest-aur-pkg.git /tmp/junest-git
 cd /tmp/junest-git
-makepkg -si
+makepkg --noconfirm -si
 
 sudo systemctl start haveged
 
 # Building JuNest image
 cd ${JUNEST_BUILDER}
-JUNEST_TEMPDIR=${JUNEST_BUILDER}/tmp /opt/junest/bin/junest -b
+JUNEST_TEMPDIR=${JUNEST_BUILDER}/tmp bash -x /opt/junest/bin/junest -b glibc gcc zsh ranger exa vim neovim
 
 sudo rm -rf ${JUNEST_BUILDER}
