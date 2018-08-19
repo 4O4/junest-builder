@@ -25,6 +25,6 @@ sudo systemctl start haveged
 
 # Building JuNest image
 cd ${JUNEST_BUILDER}
-JUNEST_TEMPDIR=${JUNEST_BUILDER}/tmp bash -x /opt/junest/bin/junest -b -n zsh glibc gcc ranger exa vim neovim
+JUNEST_TEMPDIR=${JUNEST_BUILDER}/tmp bash -x /opt/junest/bin/junest -b -n zsh glibc gcc ranger exa vim neovim aur:aurman
 
 sudo rm -rf ${JUNEST_BUILDER}
