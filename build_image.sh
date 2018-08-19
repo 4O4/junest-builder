@@ -16,9 +16,10 @@ mkdir -p ${JUNEST_BUILDER}/tmp
 
 # ArchLinux System initialization
 sudo pacman -Syu --noconfirm
-yaourt -S --noconfirm junest-git
-yaourt -S --noconfirm aurman
-sudo pacman -S --noconfirm glibc gcc zsh ranger exa vim neovim
+sudo pacman -S --noconfirm git
+git clone https://github.com/4O4/junest-aur-pkg.git /tmp/junest-git
+cd /tmp/junest-git
+makepkg -si
 
 sudo systemctl start haveged
 
